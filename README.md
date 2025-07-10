@@ -5,7 +5,7 @@
 - Ludmila Silveira - 22102068
 - Fernando Moretti - 
 - Lucas - 23102568
-- Pedro -
+- Pedro - 23101760
 
 ## 2. Descrição do Projeto
 Este projeto implementa um controlador SDN (Software-Defined Networking) utilizando o framework Ryu, focado em aprendizado de endereços MAC (switch L2), monitoramento de portas de switches e balanceamento de carga dinâmico. O objetivo principal é demonstrar as vantagens da arquitetura SDN na gestão eficiente do tráfego de rede, evitando congestionamentos e otimizando o uso de links.
