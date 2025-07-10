@@ -1,15 +1,16 @@
 # SDN Ryu Load Balancer
 
-## Grupo:
+## 1. Grupo:
 
 - Ludmila Silveira - 22102068
 - Fernando Moretti - 
 - Lucas - 23102568
 - Pedro -
 
+## 2. Descrição do Projeto
 Este projeto implementa um controlador SDN (Software-Defined Networking) utilizando o framework Ryu, focado em aprendizado de endereços MAC (switch L2), monitoramento de portas de switches e balanceamento de carga dinâmico. O objetivo principal é demonstrar as vantagens da arquitetura SDN na gestão eficiente do tráfego de rede, evitando congestionamentos e otimizando o uso de links.
 
-## 1. Objetivos do Projeto
+## 3. Objetivos do Projeto
 
 O Plano de Controle implementado visa:
 
@@ -18,11 +19,11 @@ O Plano de Controle implementado visa:
 * **Monitorar as portas dos switches** (quantidade de pacotes/bytes transmitidos).
 * Implementar **balanceamento de carga dinâmico**, redirecionando tráfego com base na ocupação das portas.
 
-## 2. Visão Geral dos Resultados
+## 4. Visão Geral dos Resultados
 
 Os resultados esperados incluem a demonstração da capacidade do controlador em gerenciar fluxos de dados, responder a condições de congestionamento e distribuir eficientemente o tráfego na rede simulada no Mininet. Serão gerados logs informativos sobre a ocupação das portas e as decisões do controlador.
 
-## 3. Estrutura da Rede Simulada
+## 5. Estrutura da Rede Simulada
 
 A rede será simulada no Mininet, com uma topologia em árvore ou malha, contendo:
 
@@ -32,34 +33,34 @@ A rede será simulada no Mininet, com uma topologia em árvore ou malha, contend
 
 O controlador utilizado será o Ryu.
 
-## 4. Algoritmos e Lógica do Plano de Controle
+## 6. Algoritmos e Lógica do Plano de Controle
 
-### 4.1. Switch Learning L2 (Aprendizado de Endereços MAC)
+### 6.1 Switch Learning L2 (Aprendizado de Endereços MAC)
 
 * Funciona como um switch Ethernet inteligente: quando um pacote chega, o controlador aprende o MAC de origem e usa esse conhecimento para encaminhar pacotes futuros.
 * O controlador instalará dinamicamente regras de encaminhamento (flow_mod) nos switches.
 
-### 4.2. Monitoramento de Tráfego das Portas
+### 6.2 Monitoramento de Tráfego das Portas
 
 * O controlador consultará periodicamente os switches para saber quantos pacotes/bytes passaram por cada porta.
 * Serão utilizadas mensagens `PortStatsRequest` e `PortStatsReply` do protocolo OpenFlow.
 
-### 4.3. Balanceamento de Carga
+### 6.3. Balanceamento de Carga
 
 * Define um limite de ocupação de porta.
 * Quando o limite é excedido (porta muito carregada), o controlador irá redirecionar novos fluxos para outra porta com menos tráfego.
 * A lógica de escolha será baseada em menor carga ou round-robin em caso de empate.
 * A detecção de congestionamento e o redirecionamento automático de fluxos ativos serão funcionalidades chave.
 
-## 5. APIs OpenFlow Utilizadas
+## 7. APIs OpenFlow Utilizadas
 
 * `PortStatsRequest / Reply`: Consulta de estatísticas de porta.
 * `FlowMod`: Adição, modificação e remoção de regras de fluxo.
 * `PacketIn / PacketOut`: Comunicação entre switches e o controlador.
 
-## 6. Configuração e Execução do Ambiente
+## 8. Configuração e Execução do Ambiente
 
-### 6.1. Pré-requisitos
+### 8.1. Pré-requisitos
 
 Certifique-se de ter instalado:
 
@@ -67,7 +68,7 @@ Certifique-se de ter instalado:
 * **Ryu**: Framework de controlador SDN.
 * **Mininet**: Emulador de rede para criar a topologia.
 
-### 6.2. Instalação de Dependências
+### 8.2. Instalação de Dependências
 
 ```bash
 # Instalar o Ryu (se ainda não tiver)
